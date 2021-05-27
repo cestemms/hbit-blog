@@ -1,4 +1,5 @@
 import React from 'react';
+import PostSection from '../PostSection';
 
 import * as S from './styles';
 
@@ -9,7 +10,7 @@ interface MainProps {
 const Main: React.FC<MainProps> = ({ id }) => {
   return (
     <S.Container id={id}>
-      <h1>Main</h1>
+      <PostSection id="post-section"/>
     </S.Container>
   );
 };

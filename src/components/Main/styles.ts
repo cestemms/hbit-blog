@@ -2,7 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  width: min(800px, 100vw);
 
-  width: min(601px, 100%);
+  border: 1px solid red;
+
+  margin: 0 auto;
+
+  @media(min-width: 800px){
+    margin-right: 60px;
+  }
 `;

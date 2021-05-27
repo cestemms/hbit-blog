@@ -25,6 +25,10 @@ export const GlobalStyles = createGlobalStyle`
   html {
     background: var(--primary);
   }
+
+  ul, li {
+    list-style: none;
+  }
   :root {
     --primary: #000;
     --secondary: #15181C;

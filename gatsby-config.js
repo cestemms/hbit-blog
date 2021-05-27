@@ -3,6 +3,13 @@ module.exports = {
     title: `Gatsby project structure`,
     description: `Initial project structure using gatsby.`,
     author: `@cestemms`,
+    company: {
+      name: 'HealthBit',
+      website: 'https://healthbit.com.br/',
+      instagram: 'https://www.instagram.com/healthbitoficial/',
+      facebook: 'https://facebook.com/healthbitoficial',
+      linkedin: 'https://linkedin.com/company/healthbit/',
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,7 +19,12 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/img`,
+      },
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `instaImages`,
+        path: `${__dirname}/src/assets/img/insta`,
       },
     },
     `gatsby-transformer-sharp`,

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Header';
+import TagMenu from '../TagMenu';
 import Main from '../Main';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
@@ -13,6 +14,7 @@ const Layout: React.FC = ( ) => {
     <>
       <S.Container>
         <Header id="app-header"/>
+        <TagMenu id="tag-menu"/>
         <S.Wrapper>
           <Main id="main-content"/>
           <Sidebar id="sidebar" />
