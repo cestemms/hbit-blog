@@ -1,56 +1,24 @@
 import React from 'react';
-import SocialButton from '../SocialButton';
+
+import Button from '../Button';
+import LinkElement from '../LinkElement';
 
 import * as S from './styles';
-import { useStaticQuery, graphql } from 'gatsby';
 
 interface HeaderProps {
   id: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ id }) => {
-  const {
-    site: {
-      siteMetadata: {
-        company: {
-          instagram,
-          facebook,
-          linkedin,
-        }
-      }
-    }
-  } = useStaticQuery(graphql`
-    query CompanyData {
-      site {
-        siteMetadata {
-          company {
-            instagram
-            facebook
-            linkedin
-          }
-        }
-      }
-    }
-  `);
+  
   return (
     <S.Container id={id}>
-      <S.MenuWrapper>
-        <S.MenuIcon/>
-      </S.MenuWrapper>
-      <S.LogoWrapper>
-        <h1>Header</h1>
-      </S.LogoWrapper>
-      <S.IconsWrapper>
-        <SocialButton id="instagram-button" url={instagram}>
-          <S.InstagramIcon/>
-        </SocialButton>
-        <SocialButton id="facebook-button" url={facebook}>
-          <S.FacebookIcon/>
-        </SocialButton>
-        <SocialButton id="linkedin-button" url={linkedin}>
-          <S.LinkedinIcon/>
-        </SocialButton>
-      </S.IconsWrapper>
+        <S.Post>
+          <LinkElement id="tag-link" url="/" label="Lorem Ipsum" color="var(--white)" size={16}/>
+          <LinkElement id="post-link" url="/" label="What is Lorem Ipsum and Where does it come from?" isTitle/>
+          <LinkElement id="date-link" url="/" label="Maio 25, 2021" color="var(--white)" size={16}/>
+          <Button id="read-more-button" url="/" fitContent>Leia Mais</Button>
+        </S.Post>
     </S.Container>
   );
 };

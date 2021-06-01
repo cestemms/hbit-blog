@@ -13,13 +13,15 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  height: 100%;
-  //max-width: 1000px;
+  margin: 60px 42px;
 
-  margin: 0 auto;
+  @media(max-width: 800px){
+    margin: 42px;
+  }
 
 
   @media(max-width: 1000px){
     flex-direction: column;
+    justify-content: center;
   }
 `;

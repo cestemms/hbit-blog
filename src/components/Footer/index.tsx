@@ -1,9 +1,9 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import SocialButton from '../SocialButton';
 
 import * as S from './styles';
-import { useStaticQuery, graphql } from 'gatsby';
 
 interface FooterProps {
   id: string;
@@ -13,6 +13,10 @@ const Footer: React.FC<FooterProps> = ({ id }) => {
   const {
     site: {
       siteMetadata: {
+        author: {
+          name,
+          url,
+        },
         company: {
           instagram,
           facebook,
@@ -24,6 +28,10 @@ const Footer: React.FC<FooterProps> = ({ id }) => {
     query SocialData {
       site {
         siteMetadata {
+          author {
+            name
+            url
+          }
           company {
             instagram
             facebook
@@ -70,6 +78,9 @@ const Footer: React.FC<FooterProps> = ({ id }) => {
           <S.LinkedinIcon/>
         </SocialButton>
       </S.IconsWrapper>
+      <S.Signature>
+        <span>Developed by <a href={url} target="_blank" rel="noopener noreferrer">{name} <S.GithubIcon/></a></span>
+      </S.Signature>
     </S.Container>
   );
 };

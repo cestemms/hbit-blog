@@ -1,8 +1,9 @@
-import styled from 'styled-components';
+import styled, { css} from 'styled-components';
 import { Link } from 'gatsby';
 
 interface ContainerProps {
   transparent?: boolean;
+  fitContent: boolean;
 }
 
 
@@ -17,5 +18,11 @@ export const Container = styled(Link)<ContainerProps>`
   cursor: pointer;
 
   background-color: ${props => props.transparent? 'transparent' : 'var(--twitter)'};
+  
+  text-decoration: none;
   color: var(--white);
+
+  ${props => props.fitContent && css`
+    width: fit-content;
+  `}
 `;

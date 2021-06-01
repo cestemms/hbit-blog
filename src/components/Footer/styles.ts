@@ -5,21 +5,24 @@ import {
   Home,
   Instagram,
   FacebookCircle,
-  Linkedin
+  Linkedin,
+  Github
  } from '../../styles/icons'
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
 
   width: 100%;
 
   background-color: var(--primary);
 
-  position: fixed;
+  position: -webkit-sticky;
   bottom: 0;
-  z-index: 2;
+
+  @media(max-width: 500px){
+    position: sticky;
+  }
 `;
 
 export const PhotosWrapper = styled.div`
@@ -31,7 +34,8 @@ export const PhotosWrapper = styled.div`
     grid-template-columns: repeat(4, 1fr);
 
     > div {
-      &:nth-child(6){
+      &:nth-child(6), 
+      &:nth-child(5){
       display: none;
     }
     }
@@ -59,6 +63,22 @@ export const IconsWrapper = styled.div`
 
   @media(min-width: 500px){
     display: none;
+  }
+`;
+
+export const Signature = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+
+  a {
+    text-decoration: none;
+    
+    &:hover{
+      color: var(--twitter);
+    }
   }
 `;
 
@@ -98,4 +118,8 @@ export const FacebookIcon = styled(FacebookCircle)`
 
 export const LinkedinIcon = styled(Linkedin)`
   ${iconsCSS};
+`;
+
+export const GithubIcon = styled(Github)`
+  width: 16px;
 `;

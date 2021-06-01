@@ -1,79 +1,48 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-import { 
-  Menu, 
-  Instagram, 
-  FacebookCircle, 
-Linkedin } from '../../styles/icons';
-
-export const Container = styled.header`
-  position: sticky;
-  top: 0;
-  z-index: 2;
-
+export const Container = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  width: min(1000px, 100vw);
 
-  width: min(1160px, 100%);
-  padding: 16px;
+  margin-top: 48px;
 
-  background-color: var(--primary);
-  border-bottom: 1px solid var(--outline);
+  padding: 0 48px;
+
+  @media(max-width: 800px){
+    margin-top: 100px;
+    padding: 0 42px;
+  }
+
+  @media(max-width: 500px){
+    padding: 0 24px;
+  }
 `;
 
-export const MenuWrapper = styled.div`
+export const Post = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   position: relative;
 
-  > svg {
-    margin: 0 8px;
-  }
+  width: 100%;
+  height: 360px;
+  border-radius: 20px;
 
-  @media(min-width: 800px){
-    display: none;
-  }
-`;
+  background-color: #666;
 
-export const LogoWrapper = styled.div`
-  display: flex;
-  > {
-    margin: 0 8px;
-  }
+  padding: 48px;
 
   @media(max-width: 500px){
-    display: none;
+    padding: 24px;
   }
 `;
 
-export const IconsWrapper = styled.div`
-  display: flex;
+export const LinkElement = styled(Link)`
+  text-decoration: none;
 
-  > a {
-    margin: 0 8px;
+  > span {
+    text-transform: uppercase;
   }
-
-  @media(max-width: 500px){
-    display: none;
-  }
-`;
-
-const iconsCSS = css`
-  width: 20px;
-`;
-
-export const MenuIcon = styled(Menu)`
-  ${iconsCSS};
-`;
-
-export const InstagramIcon = styled(Instagram)`
-  ${iconsCSS};
-`;
-
-export const FacebookIcon = styled(FacebookCircle)`
-  ${iconsCSS};
-`;
-
-export const LinkedinIcon = styled(Linkedin)`
-  ${iconsCSS};
 `;
