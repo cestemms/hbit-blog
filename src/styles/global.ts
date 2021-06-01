@@ -16,6 +16,11 @@ export const GlobalStyles = createGlobalStyle`
 
     width: 100%;
     height: 100%;
+
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
   *, button, input {
     border: 0;
@@ -41,5 +46,9 @@ export const GlobalStyles = createGlobalStyle`
     --twitter: #33A1F2;
     --twitter-dark-hover: #011017;
     --twitter-light-hover: #2C8ED6;
+
+    --facebook: #3b5998;
+    --whatsapp: #075e54;
+    --linkedin: #0e76a8;
   }
 `;
