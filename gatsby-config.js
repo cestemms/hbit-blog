@@ -2,9 +2,13 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby project structure`,
     description: `Initial project structure using gatsby.`,
-    author: `@cestemms`,
+    author: {
+      name: `@cestemms`,
+      url: `https://github.com/cestemms`
+    },
     company: {
       name: 'HealthBit',
+      blog: 'http://blog.healthbit.com.br',
       website: 'https://healthbit.com.br/',
       instagram: 'https://www.instagram.com/healthbitoficial/',
       facebook: 'https://facebook.com/healthbitoficial',
@@ -21,10 +25,23 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/assets/img`,
       },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `instaImages`,
-        path: `${__dirname}/src/assets/img/insta`,
+        name: 'posts',
+        path: `${__dirname}/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
+        name: 'md-files',
+        plugins: [],
       },
     },
     `gatsby-transformer-sharp`,
