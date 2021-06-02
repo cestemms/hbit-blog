@@ -1,8 +1,7 @@
 ---
-date: 2020-06-23
+date: 2021-06-23
 title: 'Como motivar sua equipe durante a quarentena e o trabalho remoto' 
 category: 'Saúde' 
-categoryUrl: '/saude' 
 ---
 
 Com o atual cenário no país, gestores tiveram que reinventar a forma de trabalhar e se adaptar ao home office. Algumas empresas já ofereciam o benefício como parte da cultura da empresa - como sempre foi aqui na **HealthBit**, enquanto outras se sentiram obrigadas a se adaptar ao novo estilo de trabalho remoto. Mas agora, sem a opção de encontros semanais ou diários no escritório e com o país em quarentena, com [recomendações da OMS](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public) para ficar em casa, qual é a saída para motivar a equipe?
@@ -30,7 +29,7 @@ Na **HealthBit**, os workshops acontecem geralmente às sextas-feira através da
 
 Após a apresentação, todos são convidados a debater o assunto, tirar dúvidas e fazer comentários. Alguns assuntos que já foram abordados na **HealthBit** foram: Comunicação Não Violenta, Inteligência Emocional, LGPD e Saúde, Excel e Empoderamento da Mulher.
 
-![Workshop](blog_workshop.png)
+![Workshop](/blog_workshop.png)
 
 ### Coffee break
 Na rotina presencial em escritório, automaticamente, as pessoas conversam sobre assuntos paralelos ao do trabalho, compartilham novidades e fazem uma pausa para um café da tarde… Então por que não oferecer esta mesma dinâmica de forma digital?
