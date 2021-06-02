@@ -31,7 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({ id }) => {
   const postList = allMarkdownRemark.edges;
 
   return (
-    <div id={id}>
+    <S.Container id={id}>
       {postList.map(({
       node: {
         frontmatter: { category, title, date },
@@ -45,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ id }) => {
           <div>{slug}</div>
         </div>
       ))}
-    </div>
+    </S.Container>
     
   );
 };

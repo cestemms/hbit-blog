@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   }
 
 
-  @media(max-width: 1000px){
+  @media(max-width: 1080px){
     flex-direction: column;
     justify-content: center;
   }

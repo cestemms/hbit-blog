@@ -2,9 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  width: auto;
-
+  flex-direction: column;
   margin: 48px 0;
+
+  @media(min-width: 1080px){
+    max-width: 250px;
+  }
 
   @media(max-width: 800px){
     width: 100%;
