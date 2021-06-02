@@ -19,6 +19,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
+    //uploads needs to be the first filesystem to work with gatsby-remark-images
+    //Uncomment to use cms
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `uploads`,
+    //     path: `${__dirname}/src/static/assets/img`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -40,7 +49,22 @@ module.exports = {
         footnotes: true,
         pedantic: true,
         gfm: true,
-        plugins: [],
+        plugins: [
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              name: "uploads"
+            }
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 960,
+              linkImagesToOriginal: false
+            }
+          },
+          `gatsby-remark-lazy-load`
+        ],
       },
     },
     `gatsby-transformer-sharp`,
