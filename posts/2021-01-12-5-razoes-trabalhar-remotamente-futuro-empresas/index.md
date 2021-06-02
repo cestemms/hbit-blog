@@ -1,7 +1,7 @@
 ---
 date: 2021-01-12
 title: 'Saiba tudo sobre absenteísmo e como o RH pode ajudar a controlá-lo' 
-category: 'Acompanhamento Saúde'
+category: 'Acompanhamento de Saúde'
 ---
 
 Por mais que já se ouvisse falar que trabalhar remotamente é o futuro das empresas, em março de 2020, por causa da pandemia, até as empresas que não eram adeptas ao fazer home office passaram a ter esta forma de trabalho como uma constante.

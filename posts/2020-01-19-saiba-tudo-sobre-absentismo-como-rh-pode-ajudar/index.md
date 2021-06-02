@@ -1,7 +1,7 @@
 ---
 date: 2020-01-19
 title: 'Saiba tudo sobre absenteísmo e como o RH pode ajudar a controlá-lo' 
-category: 'Acompanhamento Saúde'
+category: 'Acompanhamento de Saúde'
 ---
 
 No mercado de trabalho, e principalmente na área de Recursos Humanos (RH) ou Desenvolvimento Humano Organizacional (DHO), está cada vez mais comum ouvir a palavra **absenteísmo**. O absenteísmo significa a **falta ou ausência dos colaboradores por meio de faltas, atrasos ou acidentes, podendo ser ocasionados por motivos como problemas de saúde, pessoais e familiares**.
