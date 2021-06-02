@@ -40,7 +40,6 @@ module.exports = {
         footnotes: true,
         pedantic: true,
         gfm: true,
-        name: 'md-files',
         plugins: [],
       },
     },

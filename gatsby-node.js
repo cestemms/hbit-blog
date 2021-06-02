@@ -24,26 +24,50 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
-    {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
+  {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      edges {
+        node {
+          fields {
+            slug
           }
+          frontmatter {
+            title
+            category
+            date(locale: "pt-br", formatString: "MMMM DD, YYYY")
+          }
+          timeToRead
+          excerpt
         }
       }
     }
-  `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  }
+`).then(result => {
+
+    const posts = result.data.allMarkdownRemark.edges;
+    
+      posts.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`./src/templates/blog-post.tsx`),
+        component: path.resolve(`./src/templates/Post/index.tsx`),
         context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
           slug: node.fields.slug,
+        },
+      })
+    })
+
+    const postsPerPage = 8
+    const numPages = Math.ceil(posts.length / postsPerPage)
+
+    Array.from({ length: numPages }).forEach((_, index) => {
+      createPage({
+        path: index === 0 ? `/` : `/page/${index + 1}`,
+        component: path.resolve(`./src/templates/List/index.tsx`),
+        context: {
+          limit: index === 0 ? postsPerPage - 1 : postsPerPage,
+          skip: index === 0 ? 1 : index * postsPerPage,
+          numPages,
+          currentPage: index + 1,
         },
       })
     })
