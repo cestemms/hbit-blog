@@ -17,7 +17,7 @@ const TagMenu: React.FC<TagMenuProps> = ({ id, open }) => {
     }
   } = useStaticQuery(graphql`
     query Category {
-      allMarkdownRemark(limit: 6) {
+      allMarkdownRemark {
         distinct(field: frontmatter___category)
       }
     }
@@ -27,15 +27,16 @@ const TagMenu: React.FC<TagMenuProps> = ({ id, open }) => {
     <S.Container id={id} open={open}>
       <ul>
         {distinct.map((tag, i) => (
-          <S.TagLink key={i}>
-            <LinkElement 
-              id={`link-to-${tag}`} 
-              url={tag} 
-              label={tag}
-              color="(var--white)"
-              activeClassName="active"
-            />
-          </S.TagLink>
+          (i<6) && 
+            <S.TagLink key={i}>
+              <LinkElement 
+                id={`link-to-${tag}`} 
+                url={tag} 
+                label={tag}
+                color="(var--white)"
+                activeClassName="active"
+              />
+            </S.TagLink>
         ))}
       </ul>
     </S.Container>
