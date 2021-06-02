@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { ImgHTMLAttributes } from 'react';
 import {
 	FacebookShareButton,
 	LinkedinShareButton,
 	WhatsappShareButton,
   TwitterShareButton,
 } from 'react-share';
+import { GatsbyImage } from "gatsby-plugin-image"
+
 
 import replaceSpecialChars from '../../utils/helpers'
 
@@ -20,6 +22,7 @@ interface PostSectionProps {
   slug: string;
   date: string;
   description: string;
+  image: any;
 }
 
 const PostSection: React.FC<PostSectionProps> = ({ 
@@ -29,7 +32,8 @@ const PostSection: React.FC<PostSectionProps> = ({
   date, 
   timeToRead, 
   category, 
-  description 
+  description,
+  image,
 }) => {
 
   const categoryUrl = replaceSpecialChars(category);
@@ -37,7 +41,10 @@ const PostSection: React.FC<PostSectionProps> = ({
   return (
     <S.Container id={id}>
       <S.ImageContainer to={slug}>
-        Post Image
+        <GatsbyImage
+        alt={title}
+        image={image}
+        />
         <S.ReadMore>
           <span>Leia Mais</span>
           <div>Leitura em {timeToRead} Minutos</div>

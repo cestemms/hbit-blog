@@ -12,6 +12,8 @@ interface PaginationProps {
   numPages?: number,
   prevPage?: string,
   nextPage?: string,
+  previousTitle: string,
+  nextTitle: string,
 }
 
 const Pagination: React.FC<PaginationProps> = ({ 
@@ -22,28 +24,39 @@ const Pagination: React.FC<PaginationProps> = ({
   currentPage, 
   numPages,
   prevPage,
-  nextPage 
+  nextPage,
+  previousTitle,
+  nextTitle, 
 }) => {
 
   return (
     <S.Container id={id}>
-      {!isFirst && 
+      {!isFirst && prevPage &&
         <LinkElement 
         id="previous-page-button" 
         url={prevPage}
         >
           <S.LeftArrow/>
-          <span>Página Anterior</span>
+          <S.Wrapper>
+            {
+              !isPost ? <span>Página Anterior</span> : <span>{previousTitle}</span>
+            }
+          </S.Wrapper>
         </LinkElement>
       }
       {!isPost && 
         <span>Página {currentPage}/{numPages}</span>
       }
-      {!isLast &&
+      {!isLast && nextPage &&
         <LinkElement 
         id="next-page-button" 
         url={nextPage}>
-          <span>Pŕoxima Página</span>
+          <S.Wrapper>
+          {
+            !isPost ? <span>Pŕoxima Página</span> : <span>{nextTitle}</span>
+          }
+            
+          </S.Wrapper>
           <S.RightArrow/>
       </LinkElement>
       }

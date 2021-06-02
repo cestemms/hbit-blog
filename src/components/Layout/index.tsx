@@ -21,6 +21,8 @@ interface LayoutProps {
   numPages?: number,
   prevPage?: string,
   nextPage?: string,
+  previousTitle?: string;
+  nextTitle?: string;
 }
 
 const Layout: React.FC<LayoutProps> = ({ 
@@ -33,7 +35,9 @@ const Layout: React.FC<LayoutProps> = ({
   currentPage, 
   numPages,
   prevPage,
-  nextPage 
+  nextPage,
+  previousTitle,
+  nextTitle,
 }) => {
   return (
     <>
@@ -51,6 +55,8 @@ const Layout: React.FC<LayoutProps> = ({
               numPages={numPages}
               prevPage={prevPage}
               nextPage={nextPage}
+              previousTitle={previousTitle}
+              nextTitle={nextTitle}
             />
           </Main>
           {!is404 && <Sidebar id="app-sidebar" />}

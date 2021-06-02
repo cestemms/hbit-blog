@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 
 import { LeftArrowAlt, RightArrowAlt} from '../../styles/icons';
 
+interface WrapperProps {
+  isPost?: boolean;
+}
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -16,6 +20,18 @@ export const Container = styled.div`
     display: none;
   }
   }
+`;
+
+export const Wrapper = styled.div<WrapperProps>`
+    display: flex;
+
+  ${props => props.isPost && css`
+    width: 50%;
+
+    padding: 48px;
+
+    background-color: #666;
+  `}
 `;
 
 

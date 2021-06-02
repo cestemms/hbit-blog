@@ -1,11 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { getImage } from "gatsby-plugin-image"
+
 
 import Layout from '../../components/Layout';
 import PostSection from '../../components/PostSection';
 
 const PostList = props => {
   const postList = props.data.allMarkdownRemark.edges
+
+  const image = getImage(postList)
+
 
   const { currentPage, numPages } = props.pageContext;
   const isFirst = Boolean(currentPage === 1)
@@ -26,7 +31,18 @@ const PostList = props => {
       {postList.map(
         ({
           node: {
-            frontmatter: { title, category, date, },
+            frontmatter: { 
+              title, 
+              cover: {
+                childImageSharp: {
+                  fluid: {
+                    src
+                  }
+                }
+              },
+              category, 
+              date, 
+            },
             timeToRead,
             excerpt,
             fields: { slug },
@@ -40,6 +56,7 @@ const PostList = props => {
             date={date}
             timeToRead={timeToRead}
             description={excerpt}
+            image={image}
           />
         )
       )}
@@ -60,9 +77,16 @@ export const query = graphql`
             slug
           }
           frontmatter {
+            title
+            cover {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
             category
             date(locale: "pt-br", formatString: "MMMM DD, YYYY")
-            title
           }
           timeToRead
           excerpt

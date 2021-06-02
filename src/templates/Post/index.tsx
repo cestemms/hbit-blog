@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import {
 	FacebookShareButton,
 	LinkedinShareButton,
@@ -23,10 +23,14 @@ interface Props {
 
 const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const post = data.markdownRemark
-  const { previous, next } = pageContext
+  const { previousPost, nextPost } = pageContext
 
   return (
     <Layout isPost
+      nextPage={nextPost && nextPost.fields.slug}
+      prevPage={previousPost && previousPost.fields.slug}
+      previousTitle={previousPost && previousPost.frontmatter.title}
+      nextTitle={nextPost && nextPost.frontmatter.title}
     >
       <S.Container>
       <S.Header>
