@@ -35,13 +35,13 @@ export const Container = styled.div`
     margin: 32px 0;
   }
 
-  img {
+  > img {
     display: flex;
     width: 100%;
     height: auto;
     border-radius: 20px;
 
-    margin: 24px 0;
+    margin: 0 24px;
   }
 
   .date-row {
@@ -129,6 +129,11 @@ export const Content = styled.div`
   hr {
     border: 1px solid var(--outline);
     margin: 3rem auto;
+  }
+
+
+  .gatsby-resp-image-background-image {
+    margin: 24px 0;
   }
 `;
 
