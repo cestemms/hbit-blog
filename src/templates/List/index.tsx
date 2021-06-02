@@ -16,7 +16,7 @@ const PostList = props => {
   const isFirst = Boolean(currentPage === 1)
   const isLast = Boolean(currentPage === numPages)
   const prevPage = currentPage - 1 === 1 ? '/' : `/page/${currentPage-1}`
-  const nextPage = `page/${currentPage+1}` 
+  const nextPage = `/page/${currentPage+1}` 
 
   return (
     <Layout 
@@ -33,13 +33,6 @@ const PostList = props => {
           node: {
             frontmatter: { 
               title, 
-              cover: {
-                childImageSharp: {
-                  fluid: {
-                    src
-                  }
-                }
-              },
               category, 
               date, 
             },
@@ -78,13 +71,6 @@ export const query = graphql`
           }
           frontmatter {
             title
-            cover {
-              childImageSharp {
-                fluid {
-                  src
-                }
-              }
-            }
             category
             date(locale: "pt-br", formatString: "MMMM DD, YYYY")
           }
