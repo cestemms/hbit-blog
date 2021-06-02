@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
-interface ContainerProps {
-  post?: boolean;
-}
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  width: ${props => props.post ? 'min(600px, 100vw)' : 'min(800px, 100vw)'};
+  width: min(800px, 100vw);
 
   margin: 0 auto;
 

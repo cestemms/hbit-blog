@@ -3,6 +3,7 @@ import Navbar from '../Navbar';
 import Header from '../Header';
 import Main from '../Main';
 import Sidebar from '../Sidebar';
+import Pagination from '../Pagination';
 import Footer from '../Footer';
 
 import { GlobalStyles } from '../../styles/global';
@@ -12,19 +13,45 @@ import * as S from './styles';
 interface LayoutProps {
   children: React.ReactNode;
   isIndex?: boolean;
+  isPost?: boolean;
   is404?: boolean;
-  post?: boolean
+  isFirst?: boolean, 
+  isLast?: boolean, 
+  currentPage?: number, 
+  numPages?: number,
+  prevPage?: string,
+  nextPage?: string,
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, isIndex, is404, post }) => {
+const Layout: React.FC<LayoutProps> = ({ 
+  children, 
+  isIndex, 
+  is404, 
+  isPost,
+  isFirst, 
+  isLast, 
+  currentPage, 
+  numPages,
+  prevPage,
+  nextPage 
+}) => {
   return (
     <>
       <S.Container>
         <Navbar id="app-navbar"/>
         {isIndex && <Header id="app-header"/>}
         <S.Wrapper>
-          <Main id="main-content" post={post}>
+          <Main id="main-content">
             {children}
+            <Pagination id="app-pagination"
+              isPost={isPost}
+              isFirst={isFirst} 
+              isLast={isLast} 
+              currentPage={currentPage}
+              numPages={numPages}
+              prevPage={prevPage}
+              nextPage={nextPage}
+            />
           </Main>
           {!is404 && <Sidebar id="app-sidebar" />}
         </S.Wrapper>

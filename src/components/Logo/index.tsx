@@ -9,11 +9,11 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ id }) => {
   return (
-    <S.Container id={id}>
+    <S.Container id={id} to="/">
       <StaticImage
       src="../../assets/img/brand/logo.png"
       height={30}
-      quality={95}
+      placeholder="blurred"
       alt="Logo"
     />
     </S.Container>

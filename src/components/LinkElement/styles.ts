@@ -9,6 +9,8 @@ interface ContainerProps {
 }
 
 export const Container = styled(Link)<ContainerProps>`
+  display: flex;
+  align-items: center;
   text-transform: uppercase;
   text-decoration: none;
 

@@ -5,7 +5,7 @@ import * as S from './styles';
 interface LinkElementProps {
   id: string;
   url: string;
-  label: string;
+  label?: string;
   size?: number;
   color?: string;
   bold?: boolean;
@@ -13,10 +13,11 @@ interface LinkElementProps {
   activeClassName?: string;
 }
 
-const LinkElement: React.FC<LinkElementProps> = ({ id, url, label, size, color, bold, isTitle, activeClassName }) => {
+const LinkElement: React.FC<LinkElementProps> = ({ id, url, label, size, color, bold, isTitle, activeClassName, children }) => {
   return (
     <S.Container id={id} to={url} size={size} color={color} bold={bold} isTitle={isTitle} activeClassName={activeClassName}>
       {label}
+      {children}
     </S.Container>
   );
 };

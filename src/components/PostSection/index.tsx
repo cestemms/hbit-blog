@@ -6,6 +6,8 @@ import {
   TwitterShareButton,
 } from 'react-share';
 
+import replaceSpecialChars from '../../utils/helpers'
+
 import Button from '../Button';
 import LinkElement from '../LinkElement';
 
@@ -14,7 +16,6 @@ interface PostSectionProps {
   id: string;
   timeToRead: string;
   category: string;
-  categoryUrl: string;
   title: string;
   slug: string;
   date: string;
@@ -28,12 +29,14 @@ const PostSection: React.FC<PostSectionProps> = ({
   date, 
   timeToRead, 
   category, 
-  categoryUrl, 
   description 
 }) => {
+
+  const categoryUrl = replaceSpecialChars(category);
+
   return (
     <S.Container id={id}>
-      <S.ImageContainer>
+      <S.ImageContainer to={slug}>
         Post Image
         <S.ReadMore>
           <span>Leia Mais</span>

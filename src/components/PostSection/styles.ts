@@ -27,7 +27,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`
+export const ImageContainer = styled(Link)`
   display: flex;
   align-items: center;
   position: relative;

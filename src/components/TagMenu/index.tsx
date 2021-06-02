@@ -1,7 +1,8 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+
 import LinkElement from '../LinkElement';
 
-import { tags } from '../../utils/tags';
 import * as S from './styles';
 
 interface TagMenuProps {
@@ -10,16 +11,27 @@ interface TagMenuProps {
 }
 
 const TagMenu: React.FC<TagMenuProps> = ({ id, open }) => {
+  const {
+    allMarkdownRemark: {
+      distinct,
+    }
+  } = useStaticQuery(graphql`
+    query Category {
+      allMarkdownRemark(limit: 6) {
+        distinct(field: frontmatter___category)
+      }
+    }
+  `);
+
   return (
     <S.Container id={id} open={open}>
       <ul>
-        {tags.map((tag, i) => (
-          (i<6) &&
+        {distinct.map((tag, i) => (
           <S.TagLink key={i}>
             <LinkElement 
-              id={`link-to-${tag.url}`} 
-              url={tag.url} 
-              label={tag.label}
+              id={`link-to-${tag}`} 
+              url={tag} 
+              label={tag}
               color="(var--white)"
               activeClassName="active"
             />
