@@ -19,3 +19,10 @@ export const Container = styled.div`
     padding: 0 24px;
   }
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  padding-bottom: 10%;
+`;

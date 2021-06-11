@@ -33,13 +33,6 @@ exports.createPages = ({ graphql, actions }) => {
           }
           frontmatter {
             title
-            cover {
-              childImageSharp {
-                fluid {
-                  src
-                }
-              }
-            }
             category
             date(locale: "pt-br", formatString: "MMMM DD, YYYY")
           }

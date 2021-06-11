@@ -1,6 +1,10 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import LinkElement from '../LinkElement';
+
+import replaceSpecialChars from '../../utils/helpers';
+
 import * as S from './styles';
 
 interface SidebarProps {
@@ -20,7 +24,7 @@ const Sidebar: React.FC<SidebarProps> = ({ id }) => {
             frontmatter {
               category
               title
-              date
+              date(formatString: "MMMM DD, YYYY", locale: "PT-BR")
             }
           }
         }
@@ -38,12 +42,23 @@ const Sidebar: React.FC<SidebarProps> = ({ id }) => {
         fields: { slug }
         }
       }) => (
-        <div>
-          <div>{category}</div>
-          <div>{title}</div>
-          <div>{date}</div>
-          <div>{slug}</div>
-        </div>
+        <S.Wrapper>
+          <LinkElement 
+            id={`link-to-${replaceSpecialChars(category)}`}
+            url={replaceSpecialChars(category)}
+            label={category}
+          />
+          <LinkElement 
+            id={`link-to-${slug}`}
+            url={slug}
+            label={title}
+          />
+          <LinkElement 
+            id={`link-to-${replaceSpecialChars(date)}`}
+            url={replaceSpecialChars(date)}
+            label={date}
+          />
+        </S.Wrapper>
       ))}
     </S.Container>
     
